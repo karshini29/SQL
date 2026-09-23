@@ -1,0 +1,48 @@
+create database emp_com;
+use emp_com;
+
+create table emp
+( employee_id int,
+ first_name	varchar(25),
+ department varchar(50),
+ job_title varchar(50),
+ salary float,
+ hire_date date,
+ city varchar(50)); 
+ 
+Insert into emp(employee_id,
+ first_name,
+ department,
+ job_title,
+ salary,
+ hire_date,
+                city)values(101,"Arjun","IT","Developer",65000,"2022-03-15","Chennai"),
+                (102,"PriyaSharma","HR","HR_Executive",52000,"2021-07-10","Bangalore"),
+                (103,"RahulSingh","IT","Senior_Developer",85000,"2020-01-20","Chennai"),
+                (104,"SnehaPatel","Finance","Accountant",58000,"2023-05-12","Mumbai"),
+                (105,"Karthi","IT","Tester",55000,"2022-11-08","Hyderabad"),
+                (106,"Ananya","Marketing","Marketing_Executive",60000,"2021-09-25","Kolkata"),
+                (107,"Vikram","Finance","Financial_Analyst",72000,"2019-06-18","Mumbai"),
+                (108,"Divya","HR","HR_Manager",90000,"2018-02-14","Chennai"),
+                (109,"Suresh","IT","Developer",68000,"2023-01-30","Kochi"),
+                (110,"Meera","Marketing","Marketing_Manager",95000,"2019-10-05","Pune");
+                
+                select * from emp;
+                
+                alter table emp rename column first_name to name;
+                
+                set sql_safe_updates =0;
+                
+                update emp set job_title="Developer" where name="karthi";
+                select * from emp;
+                
+                select name,salary from emp where department="IT";
+                
+                select name,hire_date,salary from emp where salary<60000;
+                
+                select name,department from emp where hire_date between "2019-12-30" and "2021-12-30"; 
+                
+                select name,salary from emp where department in ("HR");
+                
+                select name from emp where name like 'a%';
+                
