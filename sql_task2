@@ -1,0 +1,80 @@
+create database DB;
+use DB;
+create table employee(
+      emp_id int,
+      name varchar(50),
+      department varchar(50),
+      salary float,
+      joining_date date);
+      
+      
+/*  101	Arun	IT	45000	2023-01-10
+102	Priya	HR	35000	2022-06-15
+103	Ravi	IT	55000	2021-03-20
+104	Divya	Sales	40000	2023-08-05
+105	Kiran	IT	60000	2020-11-12  */
+
+      insert into employee(
+		  emp_id,
+          name,
+          department,
+          salary,
+          joining_date) values(101,"Arun","IT",45000,"2023-01-10"),
+(102,"Priya","HR",35000,"2022-06-15"),
+(103,	"Ravi","IT",55000,"2021-03-20"),
+(104,"Divya","Sales",40000,"2023-08-05"),
+(105,"Kiran","IT",60000,"2020-11-12");
+
+
+/* 1)1.	Write a query to display all employees*/
+
+   select * from employee;
+   
+/* 2)2.	Display only employee name and salary.  */
+
+     select name,salary from employee;
+     
+/* 3.	Find employees whose salary is greater than 40,000*/
+
+	select name,salary from employee where salary>40000;
+    
+/* 4.	Find employees working in the IT department*/
+    
+      select name from employee where department in ("IT");
+      
+/* 5.	Find employees whose salary is between 40,000 and 60,000*/
+
+        select name,salary from employee where salary between 40000 and 60000; 
+        
+/* 6.	Sort employees by salary from highest to lowest. */
+     
+        select name,salary from employee order by salary desc;
+
+/*  7.	Find the highest salary. */
+        
+        select max(salary) from employee;
+        
+    
+/*  8.  lowest salry */
+      
+         select min(salary) from employee;
+         
+/*  9.	Find the average salary*/
+
+        select avg(salary) from employee;
+        
+/*10.	Count the total number of employees.*/
+
+        select count(*) from employee;
+        
+/* 11.Find the average salary for each department*/
+ 
+         select avg(salary),department from employee group by department;
+         
+/* 12. Find the maximum salary in each department*/
+
+        select max(salary),department from employee group by department;
+        
+/* 13.	Count the number of employees in each department*/
+
+        select count(*),department from employee group by department;
